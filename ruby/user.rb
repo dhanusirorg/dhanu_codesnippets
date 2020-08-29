@@ -73,3 +73,9 @@ elsif operation == 'signin'
   user = User.new({ username: username, email: "", password: password })
   user.sign_in
 end
+
+
+# Run as
+# $ ruby user.rb signup foo foo@example.com foo123
+# $ ruby user.rb signin signin foo foo123
+
