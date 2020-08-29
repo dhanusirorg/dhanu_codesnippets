@@ -59,23 +59,24 @@ end
 
 operation = ARGV.first
 
-if operation == 'signup'
+case operation
+when 'signup'
   username = ARGV[1]
   email = ARGV[2]
   password = ARGV[3]
 
   user = User.new({ username: username, email: email, password: password })
   user.sign_up
-elsif operation == 'signin'
+when 'signin'
   username = ARGV[1]
   password = ARGV[2]
 
   user = User.new({ username: username, email: "", password: password })
   user.sign_in
+else
+  puts <<~USAGE
+    Run as
+      $ ruby user.rb signup <username> <email> <password>
+      $ ruby user.rb signin <username> <password>
+  USAGE
 end
-
-
-# Run as
-# $ ruby user.rb signup foo foo@example.com foo123
-# $ ruby user.rb signin signin foo foo123
-
