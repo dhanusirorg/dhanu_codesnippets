@@ -1,3 +1,10 @@
+# Scenario: We need to simulate a sign up and sign in functionality through
+#           command line
+
+# Version 1
+#-----------------
+# In this version we are using class and putting every functionality inside it
+
 # User class
 class User
   DB_FOLDER = 'db'
@@ -48,10 +55,6 @@ class User
     "#{@user[:username]}#{AUTH_SEP}#{@user[:email]}#{AUTH_SEP}#{@user[:password]}"
   end
 
-  def self.auth_line
-    "#{@user[:username]}#{AUTH_SEP}#{@user[:email]}#{AUTH_SEP}#{@user[:password]}"
-  end
-
   def auth_file(username)
     "#{DB_FOLDER}/#{username}.auth"
   end
@@ -71,7 +74,7 @@ when 'signin'
   username = ARGV[1]
   password = ARGV[2]
 
-  user = User.new({ username: username, email: "", password: password })
+  user = User.new({ username: username, email: '', password: password })
   user.sign_in
 else
   puts <<~USAGE
@@ -80,3 +83,6 @@ else
       $ ruby user.rb signin <username> <password>
   USAGE
 end
+
+# Potential Observations
+# During sign in we need to create User object with empty email.
