@@ -17,16 +17,18 @@ class User
     @user = {username: username, password: password, email: email}
   end
 
+  attr_reader :user
+
   def sign_up
-    File.open(auth_file(@user[:username]), 'w') do |file|
+    File.open(auth_file(user[:username]), 'w') do |file|
       file.write(auth_line)
-      puts "User '#{@user[:username]}' has been successfully signed up.'"
+      puts "User '#{user[:username]}' has been successfully signed up.'"
     end
   end
 
   def sign_in
-    if authenticate(@user[:username], @user[:password])
-      puts "Welcome, #{@user[:username]}."
+    if authenticate(user[:username], user[:password])
+      puts "Welcome, #{user[:username]}."
     else
       puts 'Invalid username or password.'
     end
@@ -52,7 +54,7 @@ class User
   end
 
   def auth_line
-    "#{@user[:username]}#{AUTH_SEP}#{@user[:email]}#{AUTH_SEP}#{@user[:password]}"
+    "#{user[:username]}#{AUTH_SEP}#{user[:email]}#{AUTH_SEP}#{user[:password]}"
   end
 
   def auth_file(username)
