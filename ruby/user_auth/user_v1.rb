@@ -37,19 +37,10 @@ class User
   private
 
   def authenticate(name, password)
-    # unless File.exist? auth_file(name)
-    #   return false
-    # end
-
     return false unless File.exist? auth_file(name)
 
     auth = File.read(auth_file(name))
     tokens = auth.split(AUTH_SEP)
-    # if password == tokens[AUTH_FORMAT[:password]]
-    #   return true
-    # else
-    #   return false
-    # end
     password == tokens[AUTH_FORMAT[:password]]
   end
 
