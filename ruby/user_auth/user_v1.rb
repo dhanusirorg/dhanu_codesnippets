@@ -13,8 +13,8 @@ class User
     username: 0, email: 1, password: 2
   }
 
-  def initialize(user = {})
-    @user = user
+  def initialize(username:, password:, email:)
+    @user = {username: username, password: password, email: email}
   end
 
   def sign_up
