@@ -22,15 +22,15 @@ class User
   def sign_up
     File.open(auth_file(user[:username]), 'w') do |file|
       file.write(auth_line)
-      puts "User '#{user[:username]}' has been successfully signed up.'"
+      "User '#{user[:username]}' has been successfully signed up.'"
     end
   end
 
   def sign_in
     if authenticate(user[:username], user[:password])
-      puts "Welcome, #{user[:username]}."
+      "Welcome, #{user[:username]}."
     else
-      puts 'Invalid username or password.'
+      'Invalid username or password.'
     end
   end
 
@@ -71,13 +71,13 @@ when 'signup'
   password = ARGV[3]
 
   user = User.new({ username: username, email: email, password: password })
-  user.sign_up
+  puts user.sign_up
 when 'signin'
   username = ARGV[1]
   password = ARGV[2]
 
   user = User.new({ username: username, email: '', password: password })
-  user.sign_in
+  puts user.sign_in
 else
   puts <<~USAGE
     Run as
