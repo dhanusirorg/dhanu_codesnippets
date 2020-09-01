@@ -10,40 +10,40 @@ class User
   DB_FOLDER = 'db'
   AUTH_SEP = ' '
   AUTH_FORMAT = {
-    username: 0, email: 1, password: 2
+    name: 0, email: 1, password: 2
   }
 
-  def initialize(username:, password:, email:)
-    @user = {username: username, password: password, email: email}
+  def initialize(name:, password:, email:)
+    @user = {name: name, password: password, email: email}
   end
 
   attr_reader :user
 
   def sign_up
-    File.open(auth_file(user[:username]), 'w') do |file|
+    File.open(auth_file(user[:name]), 'w') do |file|
       file.write(auth_line)
-      "User '#{user[:username]}' has been successfully signed up.'"
+      "User '#{user[:name]}' has been successfully signed up.'"
     end
   end
 
   def sign_in
-    if authenticate(user[:username], user[:password])
-      "Welcome, #{user[:username]}."
+    if authenticate(user[:name], user[:password])
+      "Welcome, #{user[:name]}."
     else
-      'Invalid username or password.'
+      'Invalid name or password.'
     end
   end
 
   private
 
-  def authenticate(username, password)
-    # unless File.exist? auth_file(username)
+  def authenticate(name, password)
+    # unless File.exist? auth_file(name)
     #   return false
     # end
 
-    return false unless File.exist? auth_file(username)
+    return false unless File.exist? auth_file(name)
 
-    auth = File.read(auth_file(username))
+    auth = File.read(auth_file(name))
     tokens = auth.split(AUTH_SEP)
     # if password == tokens[AUTH_FORMAT[:password]]
     #   return true
@@ -54,11 +54,11 @@ class User
   end
 
   def auth_line
-    "#{user[:username]}#{AUTH_SEP}#{user[:email]}#{AUTH_SEP}#{user[:password]}"
+    "#{user[:name]}#{AUTH_SEP}#{user[:email]}#{AUTH_SEP}#{user[:password]}"
   end
 
-  def auth_file(username)
-    "#{DB_FOLDER}/#{username}.auth"
+  def auth_file(name)
+    "#{DB_FOLDER}/#{name}.auth"
   end
 end
 
@@ -66,23 +66,23 @@ operation = ARGV.first
 
 case operation
 when 'signup'
-  username = ARGV[1]
+  name = ARGV[1]
   email = ARGV[2]
   password = ARGV[3]
 
-  user = User.new({ username: username, email: email, password: password })
+  user = User.new({ name: name, email: email, password: password })
   puts user.sign_up
 when 'signin'
-  username = ARGV[1]
+  name = ARGV[1]
   password = ARGV[2]
 
-  user = User.new({ username: username, email: '', password: password })
+  user = User.new({ name: name, email: '', password: password })
   puts user.sign_in
 else
   puts <<~USAGE
     Run as
-      $ ruby user.rb signup <username> <email> <password>
-      $ ruby user.rb signin <username> <password>
+      $ ruby user.rb signup <name> <email> <password>
+      $ ruby user.rb signin <name> <password>
   USAGE
 end
 
