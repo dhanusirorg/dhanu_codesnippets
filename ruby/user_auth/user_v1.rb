@@ -13,7 +13,7 @@ class User
     name: 0, email: 1, password: 2
   }
 
-  def initialize(name:, password:, email:)
+  def initialize(name:, email: '', password:)
     @user = {name: name, password: password, email: email}
   end
 
@@ -61,13 +61,13 @@ when 'signup'
   email = ARGV[2]
   password = ARGV[3]
 
-  user = User.new({ name: name, email: email, password: password })
+  user = User.new(name: name, email: email, password: password)
   puts user.sign_up
 when 'signin'
   name = ARGV[1]
   password = ARGV[2]
 
-  user = User.new({ name: name, email: '', password: password })
+  user = User.new(name: name, password: password)
   puts user.sign_in
 else
   puts <<~USAGE
