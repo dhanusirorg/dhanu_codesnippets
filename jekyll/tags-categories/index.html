@@ -1,0 +1,76 @@
+---
+layout: default
+title: Your Awesome Title
+page_name: home
+---
+
+<div class="home-page page-margin pb-5">
+  <div class="container">
+    <h2 class="text-center">Filtering collection using simple Liquid
+      <a href="https://shopify.github.io/liquid/filters/where/" target="_blank">'where' filter</a>
+    </h2>
+
+    <h2 class="mt-4">All Projects</h2>
+    <div class="row">
+      {% for project in site.projects %}
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-header">
+            Title: {{ project.title }} <br>
+            Average time to solve: {{ project.duration }} <br>
+            Tags: {{ project.tags | join: ', ' }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <h2>Beginner Projects</h2>
+    <div class="row">
+      {% assign projects = site.projects | where: 'level', 'beginner' %}
+      {% for project in projects %}
+        <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-header">
+            Title: {{ project.title }} <br>
+            Average time to solve: {{ project.duration }} <br>
+            Tags: {{ project.tags | join: ', ' }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <h2>Datatype related Projects</h2>
+    <div class="row">
+      {% assign projects = site.projects | where: 'tags', 'datatype' %}
+      {% for project in projects %}
+        <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-header">
+            Title: {{ project.title }} <br>
+            Average time to solve: {{ project.duration }} <br>
+            Tags: {{ project.tags | join: ', ' }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <h2>Docker related Projects</h2>
+    <div class="row">
+      {% assign projects = site.projects | where: 'lang_or_framework', 'docker' %}
+      {% for project in projects %}
+        <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-header">
+            Title: {{ project.title }} <br>
+            Average time to solve: {{ project.duration }} <br>
+            Tags: {{ project.tags | join: ', ' }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
