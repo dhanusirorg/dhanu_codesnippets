@@ -1,0 +1,17 @@
+ror/*/tmp/
+ror/*/node_modules/
+ror/*/.rspec
+ror/*/db/*.sqlite3
+ror/*/log/*
+ror/*/tmp/*
+!ror/*/log/.keep
+!ror/*/tmp/.keep
+ror/*/config/initializers/secret_token.rb
+ror/*/config/master.key
+ror/*/.env
+ror/*/.env.*
+ror/*/.bundle
+ror/*/vendor/bundle
+ror/*/public/packs
+ror/*/public/packs-test
+ror/*/public/assets
