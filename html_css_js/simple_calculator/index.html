@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Simple Calculator</h1>
+
+    <!-- Table to show calculator -->
+    <table class="center">
+      <!-- first row to have result display and clear result  -->
+      <tr>
+        <td colspan="3"><input type="text" id="result" /></td>
+        <!-- clearResult() function will clear result textbox -->
+        <td><input type="button" value="c" onclick="clearResult()" /></td>
+      </tr>
+
+      <!-- 2nd, 3rd and 4th rows -->
+      <tr>
+        <!-- displayValue("1") will be called -->
+        <td><input type="button" value="1" onclick="displayValue('1')" /> </td>
+        <td><input type="button" value="2" onclick="displayValue('2')" /> </td>
+        <td><input type="button" value="3" onclick="displayValue('3')" /> </td>
+        <td><input type="button" value="/" onclick="displayValue('/')" /> </td>
+      </tr>
+      <tr>
+        <td><input type="button" value="4" onclick="displayValue('4')" /> </td>
+        <td><input type="button" value="5" onclick="displayValue('5')" /> </td>
+        <td><input type="button" value="6" onclick="displayValue('6')" /> </td>
+        <td><input type="button" value="-" onclick="displayValue('-')" /> </td>
+      </tr>
+      <tr>
+        <td><input type="button" value="7" onclick="displayValue('7')" /> </td>
+        <td><input type="button" value="8" onclick="displayValue('8')" /> </td>
+        <td><input type="button" value="9" onclick="displayValue('9')" /> </td>
+        <td><input type="button" value="+" onclick="displayValue('+')" /> </td>
+      </tr>
+
+      <!-- last row  -->
+      <tr>
+        <td><input type="button" value="." onclick="displayValue('.')" /> </td>
+        <td><input type="button" value="0" onclick="displayValue('0')" /> </td>
+
+        <!-- solve() will evaluate value and display to result -->
+        <td><input type="button" value="=" onclick="solve()" /> </td>
+
+        <td><input type="button" value="*" onclick="displayValue('*')" /> </td>
+      </tr>
+    </table>
+
+    <!-- JavaScript -->
+    <script src="javascript.js"></script>
+  </body>
+</html>

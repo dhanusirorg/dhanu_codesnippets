@@ -1,0 +1,29 @@
+/* Custom CSS */
+h1 { text-align: center;}
+table {
+  border-collapse: collapse;
+  border-radius: 5px;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+td, th {
+  border: 1px solid #eee;
+  text-align: left;
+  /* Uncomment below and see */
+  /* background-color: #eee; */
+  padding: 8px;
+}
+input[type="button"] {
+  background-color: #eee;
+  color: #111;
+  width: 100%;
+  border-radius: 5px;
+}
+
+input[type="text"] {
+  background-color: white;
+  width: 95%;
+  border-radius: 5px;
+}
