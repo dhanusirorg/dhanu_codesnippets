@@ -1,0 +1,45 @@
+/* Custom CSS */
+h1 { text-align: center;}
+table {
+  margin: auto;
+  border-collapse: collapse;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+td, th {
+  text-align: left;
+  /* Uncomment below and see */
+  /* background-color: #eee; */
+  padding: 8px;
+}
+input[type="button"] {
+  background-color: #eee;
+  color: #111;
+  width: 100%;
+  border-radius: 5px;
+  width: 60px;
+  height: 40px;
+  font-size: 20px;
+  box-shadow: 0 5px rgba(0,0,0,0.2);
+  margin: 10px;
+  border: 1px solid #eee;
+}
+input[type="button"]:focus {
+ outline: 0;
+}
+input[type="button"]:hover {
+  background-color: #ccc;
+}
+input[type="text"] {
+  background-color: white;
+  width: 90%;
+  border-radius: 5px;
+  text-align: right;
+  height: 40px;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+}
+table tr:first-child {
+  border-bottom: 1px solid #eee;
+}
+
